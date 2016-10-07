@@ -1,0 +1,20 @@
+<div class="container w-xxl w-auto-xs" ng-controller="LoginCtrl" ng-init="app.settings.container = false;">
+  <a href class="navbar-brand block m-t">Sign in</a>
+  <div class="m-b-lg">
+    <form name="form" class="form-validation">
+      <div class="text-danger wrapper text-center" ng-show="authError">
+          {{authError}}
+      </div>
+      <div class="list-group list-group-sm">
+        <div class="list-group-item">
+          <input type="email" placeholder="Email" class="form-control no-border" ng-model="user.email" required>
+        </div>
+        <div class="list-group-item">
+           <input type="password" placeholder="Password" class="form-control no-border" ng-model="user.password" minlength="5" required>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-lg btn-dark btn-block" ng-click="login(form)" ng-disabled='form.$invalid'>Log in</button>
+      <div class="text-center m-t m-b"><a ui-sref="access.signup">You don't have account?</a></div>
+    </form>
+  </div>
+</div>

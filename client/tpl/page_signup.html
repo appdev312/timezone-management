@@ -1,0 +1,25 @@
+<div class="container w-xxl w-auto-xs" ng-controller="SignupCtrl" ng-init="app.settings.container = false;">
+  <a href class="navbar-brand block m-t">{{app.name}}</a>
+  <div class="m-b-lg">
+    <form name="form" class="form-validation">
+      <div class="text-danger wrapper text-center" ng-show="authError">
+          {{authError}}
+      </div>
+      <div class="list-group list-group-sm">
+        <div class="list-group-item">
+          <input placeholder="Name" class="form-control no-border" ng-model="user.name" required>
+        </div>
+        <div class="list-group-item">
+          <input type="email" placeholder="Email" class="form-control no-border" ng-model="user.email" required>
+        </div>
+        <div class="list-group-item">
+           <input type="password" placeholder="Password" class="form-control no-border" ng-model="user.password" minlength="5" required>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-lg btn-dark btn-block" ng-click="register(form)" ng-disabled='form.$invalid'>Sign up</button>
+      <div class="line line-dashed"></div>
+      <p class="text-center"><small>Already have an account?</small></p>
+      <a ui-sref="access.login" class="btn btn-lg btn-default btn-block">Sign in</a>
+    </form>
+  </div>
+</div>

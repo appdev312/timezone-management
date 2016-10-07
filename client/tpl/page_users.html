@@ -1,0 +1,46 @@
+<div class="wrapper-md" ng-controller="userListCtrl">
+  <div class="panel panel-default">
+    <div class="panel-body b-b b-light">
+      <span translate="aside.nav.components.pages.SEARCH">Search</span>: <input id="filter" type="text" class="form-control input-sm w-sm inline m-r"/>
+      <span style="float:right;">
+          <button class="btn m-b-xs btn-sm btn-default btn-addon" ng-click="editUser()"><i class="fa fa-plus"></i>NEW</button>
+      </span>
+    </div>
+
+    <div style="padding-bottom: 10px;">
+      <table class="table m-b-none" ui-jq="footable" data-filter="#filter" data-page-size="10">
+        <thead>
+          <tr>
+              <th width="25%">
+                  <span translate="account.USERNAME">Username</span>
+              </th>
+              <th width="25%">
+                  <span translate="header.navbar.new.EMAIL">Email</span>
+              </th>
+              <th width="25%">
+                  <span translate="usersection.ROLE">Role</span>
+              </th>
+              <th width="25%">
+                  <span translate="usersection.ACTION">Action</span>
+              </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="usr in users">
+              <td>{{usr.name}}</td>
+              <td>{{usr.email}}</td>
+              <td>{{usr.role}}</td>
+              <td><div class="list-icon action-icon" ng-show="editable(usr._id)"><div><a href="" ng-click="editUser(usr._id);"><i class="fa fa-pencil"></i></a></div><div><a href="" ng-click="removeUser('{{usr._id}}');"><i class="glyphicon glyphicon-remove"></i></a></div></td>
+          </tr>
+        </tbody>
+        <tfoot class="hide-if-no-paging">
+          <tr>
+              <td colspan="5" class="text-center">
+                  <ul class="pagination"></ul>
+              </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="app">
+<head>
+  <meta charset="utf-8" />
+  <title>Timezone Manager</title>
+  <meta name="description" content="Angular, Html5, Timezone management" />
+  <meta name="keywords" content="AngularJS, angular, bootstrap, timezone" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  
+  <link rel="stylesheet" href="libs/animate.css/animate.css" type="text/css" />
+  <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="libs/simple-line-icons/css/simple-line-icons.css" type="text/css" />
+
+  <!-- Styling -->
+  <link rel="stylesheet" href="css/app.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/custom.css" type="text/css" />
+</head>
+
+<body ng-controller="AppCtrl">
+  <div class="app" id="app" ng-class="{'app-header-fixed':app.settings.headerFixed, 'app-aside-fixed':app.settings.asideFixed, 'app-aside-folded':app.settings.asideFolded, 'app-aside-dock':app.settings.asideDock, 'container':app.settings.container}" ui-view></div>
+
+  <!-- jQuery -->
+  <script src="js/app.src.js"></script>
+  <!-- Lazy loading -->
+</body>
+</html>

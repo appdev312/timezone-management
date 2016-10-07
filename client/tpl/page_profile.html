@@ -1,0 +1,68 @@
+<div class="wrapper-md" ng-controller="ProfileCtrl">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <form class="form-horizontal" name="profile_form">
+            <div class="form-group">
+              <label class="col-lg-3 control-label" translate="account.ROLE">My Role</label>
+              <div class="col-lg-4">
+                <input type="text" class="form-control" placeholder="Role" ng-model="edituser.role" disabled>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-3 control-label" translate="aside.nav.EMAIL">Email</label>
+              <div class="col-lg-8">
+                <input type="email" class="form-control" placeholder="Email" ng-model="edituser.email" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-3 control-label" translate="account.USERNAME">Username</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control" placeholder="Username" ng-model="edituser.name" required>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <div class="col-lg-offset-3 col-lg-4">
+                <div class="checkbox">
+                  <label class="i-checks">
+                    <input type="checkbox" ng-model="PasswordForm"><i></i> Change Password?
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-offset-3 col-lg-8" style="text-align: right;">
+                <button type="button" class="btn btn-sm btn-black" translate="account.SAVE" ng-click="updateProfile(profile_form);" ng-disabled='profile_form.$invalid'>Save</button>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6" ng-show="PasswordForm">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <form name="password_form" class="form-validation">
+            <div class="form-group">
+              <label translate="account.OLDPASSWORD">Old Password</label>
+              <input type="password" class="form-control" placeholder="Old Password" ng-model="opassword" minlength="5" required>
+            </div>
+            <div class="form-group">
+              <label translate="account.NEWPASSWORD">New Password</label>
+              <input type="password" class="form-control" placeholder="New Password" ng-model="password1" minlength="5" required>
+            </div>
+            <div class="form-group">
+              <label translate="account.CONFIRMPASSWORD">Confirm Password</label>
+              <input type="password" class="form-control" placeholder="Confirm Password" ng-model="password2" minlength="5" required>
+            </div>
+            <button type="button" class="btn btn-sm btn-black" ng-click="updatePassword(password_form);" translate="account.SAVE" ng-disabled='password_form.$invalid'>Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

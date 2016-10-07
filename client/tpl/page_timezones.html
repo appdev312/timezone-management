@@ -1,0 +1,58 @@
+<div class="wrapper-md" ng-controller="tzListCtrl">
+  <div class="panel panel-default">
+    <div class="panel-body b-b b-light">
+      <span ng-show="showUsersCol">Filter by user: </span>
+      <select ng-model="tzFilterKey" class="m-b" ng-options="usr._id as usr.name for usr in users" ng-show="showUsersCol">
+        <option value=""> All Users </option>
+      </select>
+      <span> Filter by names: </span> <input type="text" ng-model="nameFilter"/>
+      <span style="float:right;">
+          <button class="btn m-b-xs btn-sm btn-default btn-addon" ng-click="editTZ();"><i class="fa fa-plus"></i>NEW</button>
+      </span>
+    </div>
+
+    <div style="padding-bottom: 10px;">
+      <table class="table m-b-none" ui-jq="footable" data-page-size="10">
+        <thead>
+          <tr>
+              <th width="15%" ng-show="showUsersCol">
+                  <span translate="header.navbar.new.USER">User</span>
+              </th>
+              <th data-hide="phone, tablet" width="15%">
+                  <span translate="timezonesheet.NAME">Name</span>
+              </th>
+              <th data-hide="phone, tablet" width="20%">
+                  <span translate="timezonesheet.NAMEOFCITY">Name of city</span>
+              </th>
+              <th data-hide="phone, tablet" width="15%">
+                  <span translate="timezonesheet.DIFFERENCETOGMT">Difference to GMT</span>
+              </th>
+              <th data-hide="phone, tablet" width="20%">
+                  <span translate="timezonesheet.CURTIME">Current Time</span>
+              </th>
+              <th width="15%">
+                  <span translate="usersection.ACTION">Action</span>
+              </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="tz in timezones | filter : tzFilter">
+              <td ng-show="showUsersCol">{{users[tz.userId].name}}</td>
+              <td>{{tz.name}}</td>
+              <td>{{tz.nameOfCity}}</td>
+              <td>{{showDIFF(tz.differenceToGMT)}}</td>
+              <td>{{tz.curTime | time}}</td>
+              <td><div class="list-icon action-icon"><div><a href="" ng-click="editTZ(tz._id);"><i class="fa fa-pencil"></i></a></div><div><a href="" ng-click="removeTZ('{{tz._id}}');"><i class="glyphicon glyphicon-remove"></i></a></div></td>
+          </tr>
+        </tbody>
+        <tfoot class="hide-if-no-paging">
+          <tr>
+              <td colspan="5" class="text-center">
+                  <ul class="pagination"></ul>
+              </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>

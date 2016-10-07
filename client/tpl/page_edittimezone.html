@@ -1,0 +1,51 @@
+<div ng-controller="tzEditCtrl">
+  <div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3" translate="timezonesheet.NEWENTRY" ng-show="isEdit == false">NEW ENTRY</h1>
+    <h1 class="m-n font-thin h3" translate="timezonesheet.EDITENTRY" ng-show="isEdit == true">EDIT ENTRY</h1>
+  </div>
+  <div class="wrapper-md">
+    <div class="row">
+      <div class="col-sm-5">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <br/>
+            <form class="form-horizontal" name="tzForm">
+              <div class="form-group" ng-show="showUsersCol">
+                <label class="col-lg-3 control-label" translate="header.navbar.new.USER">User</label>
+                <div class="col-lg-4">
+                  <select ng-model="editentry.userId" class="form-control m-b" ng-options="usr._id as usr.name for usr in users">
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-3 control-label" translate="timezonesheet.NAME">Name</label>
+                <div class="col-lg-8">
+                  <input type="text" class="form-control" placeholder="Name" ng-model="editentry.name" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-3 control-label" translate="timezonesheet.NAMEOFCITY">Name of city</label>
+                <div class="col-lg-8">
+                  <input type="text" class="form-control" placeholder="Name of city" ng-model="editentry.nameOfCity" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-3 control-label" translate="timezonesheet.DIFFERENCETOGMT">Difference to GMT</label>
+                <div class="col-lg-8">
+                  <input type="text" class="form-control" placeholder="0" ng-model="editentry.differenceToGMT" required>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="col-lg-offset-3 col-lg-8" style="text-align: right;">
+                  <button type="button" class="btn btn-sm btn-default" translate="account.CANCEL" ng-click="cancel();">Cancel</button>
+                  <button type="button" class="btn btn-sm btn-black" translate="account.SAVE" ng-click="save();" ng-disabled='tzForm.$invalid'>Save</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

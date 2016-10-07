@@ -1,0 +1,38 @@
+#notification {
+  position:fixed;
+  top:0px;
+  width:100%;
+  z-index:9999;
+  text-align:center;
+  font-weight:normal;
+  font-size:14px;
+  font-weight:bold;
+  color:white;
+  background-color:rgba(239, 55, 55, 0.76);
+  padding:5px;
+  display: none;
+}
+
+#notification_success{
+  position:fixed;
+  top:0px;
+  width:100%;
+  z-index:9999;
+  text-align:center;
+  font-weight:normal;
+  font-size:14px;
+  font-weight:bold;
+  color:white;
+  background-color: rgba(97, 185, 245, 0.71);
+  padding:5px;
+  display: none;
+}
+
+.action-icon div{
+  float: left;
+  line-height: 0px;
+}
+
+.action-icon i{
+  width: 20px;
+}

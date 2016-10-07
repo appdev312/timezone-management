@@ -1,0 +1,28 @@
+<!-- list -->
+<ul class="nav">
+  <li ui-sref-active="active" ng-show="canManageUsers()">
+    <a ui-sref="app.users">
+      <i class="icon-users icon text-info-lter"></i>
+      <span translate="aside.nav.USERS">Users</span>
+    </a>
+  </li>
+  <li ui-sref-active="active" ng-show="canManageTimezones()">
+    <a ui-sref="app.timezones">
+      <i class="glyphicon glyphicon-calendar icon text-info-lter"></i>
+      <span translate="aside.nav.TIMEZONES">Timezones</span>
+    </a>
+  </li>
+  <li ui-sref-active="active">
+    <a ui-sref="app.profile">
+      <i class="icon-user icon text-info-lter"></i>
+      <span translate="aside.nav.your_stuff.PROFILE">Profile</span>
+    </a>
+  </li>
+  <li ui-sref-active="active">
+    <a ng-click="logout()">
+      <i class="icon-logout icon text-info-lter"></i>
+      <span translate="aside.nav.SIGNOUT">Logout</span>
+    </a>
+  </li>
+</ul>
+<!-- / list -->
